@@ -60,13 +60,10 @@ public class LookupTable<V> {
 			}
 			cur = cur.subnodes[(int)let];
 		}
-		if (cur.value == null) {
-			throw new NoSuchElementException();
-		}
 		return cur.value;
 	}
 
-	private boolean isKeyCorrect(String key) {
+	private void isKeyCorrect(String key) {
 		Objects.requireNonNull(key);
 		if (key.length() > MAX_STRING_KEY_LENGHT) {
 			throw new IllegalArgumentException("Key too long");
@@ -76,7 +73,6 @@ public class LookupTable<V> {
 				throw new IllegalArgumentException("Illegal letter");
 			}
 		}
-		return true;
 	}
 
 }
